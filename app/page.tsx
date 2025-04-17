@@ -6,13 +6,13 @@ export default function Home() {
   const categories = getAllCategories()
 
   return (
-    <div className="flex min-h-screen flex-col bg-gradient-to-b from-green-50 to-white">
+    <div className="flex min-h-screen flex-col bg-gradient-to-b from-green-50 to-white" style={{ backgroundImage: "url('/image.webp')", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }} >
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="w-full py-32" >
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter text-green-800 sm:text-4xl md:text-5xl">
+                <h1 className="text-3xl font-bold tracking-tighter text-green-500 sm:text-4xl md:text-5xl" style={{textShadow: "0 2px 4px rgba(0, 0, 0, 0.9)"}}>
                   Bizning Menyu
                 </h1>
               </div>
@@ -22,25 +22,16 @@ export default function Home() {
                 <Link
                   key={category.id}
                   href={`/${category.slug}`}
-                  className="group relative overflow-hidden rounded-2xl border-2 border-green-200 bg-white shadow-md transition-all hover:border-green-400 hover:shadow-lg"
+                  className="group relative overflow-hidden rounded-2xl border-2 border-green-400 bg-white/40 backdrop-blur-xl shadow-md transition-all hover:border-green-500 hover:shadow-lg"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-green-100 to-green-50 opacity-50 rounded-2xl"></div>
                   <div className="relative p-6 sm:p-8">
                     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-8 w-8 text-green-600"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                        />
-                      </svg>
+                      {category.id !== '1' ? (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" className="h-8 w-8 text-green-600" viewBox="0 0 512 512"><path fill="currentColor" d="M267.895 20.495s-12.96 6.614-25.907 16.354c-6.473 4.87-13.025 10.52-18.205 17.027c-5.18 6.506-9.402 14.232-8.76 23.266c.714 10.04 7.52 17.517 14.78 22c7.259 4.482 15.502 7.194 23.265 9.869c7.764 2.675 15.05 5.313 19.672 8.168c4.623 2.854 6.052 4.703 6.283 7.963c.027.37-.418 2.346-2.613 5.103s-5.726 5.93-9.42 8.71c-7.388 5.557-15.095 9.54-15.095 9.54l8.21 16.016s8.826-4.494 17.706-11.174c4.44-3.34 8.976-7.227 12.681-11.88c3.705-4.655 6.993-10.44 6.485-17.593c-.714-10.04-7.52-17.517-14.78-22s-15.502-7.194-23.265-9.869c-7.764-2.675-15.05-5.313-19.672-8.168c-4.623-2.855-6.052-4.703-6.283-7.963c-.16-2.252 1.217-6.168 4.886-10.777c3.67-4.61 9.218-9.549 14.946-13.858c11.454-8.617 23.296-14.718 23.296-14.718zm-128 48s-12.96 6.614-25.907 16.354c-6.473 4.87-13.025 10.52-18.205 17.027c-5.18 6.506-9.402 14.232-8.76 23.266c.714 10.04 7.52 17.517 14.78 22c7.259 4.482 15.502 7.194 23.265 9.869c7.764 2.675 15.05 5.313 19.672 8.168c4.623 2.854 6.052 4.703 6.283 7.963c.027.37-.418 2.346-2.613 5.103s-5.726 5.93-9.42 8.71c-7.388 5.557-15.095 9.54-15.095 9.54l8.21 16.016s8.826-4.494 17.706-11.174c4.44-3.34 8.976-7.227 12.681-11.881s6.993-10.44 6.485-17.592c-.714-10.04-7.52-17.517-14.78-22s-15.502-7.194-23.265-9.869c-7.764-2.675-15.05-5.313-19.672-8.168c-4.623-2.855-6.052-4.703-6.283-7.963c-.16-2.252 1.217-6.168 4.886-10.777c3.67-4.61 9.218-9.549 14.946-13.858c11.454-8.617 23.296-14.718 23.296-14.718zm256 0s-12.96 6.614-25.907 16.354c-6.473 4.87-13.025 10.52-18.205 17.027c-5.18 6.506-9.402 14.232-8.76 23.266c.714 10.04 7.52 17.517 14.78 22c7.259 4.482 15.502 7.194 23.265 9.869c7.764 2.675 15.05 5.313 19.672 8.168c4.623 2.854 6.052 4.703 6.283 7.963c.027.37-.418 2.346-2.613 5.103s-5.726 5.93-9.42 8.71c-7.388 5.557-15.095 9.54-15.095 9.54l8.21 16.016s8.826-4.494 17.706-11.174c4.44-3.34 8.976-7.227 12.681-11.881s6.993-10.44 6.485-17.592c-.714-10.04-7.52-17.517-14.78-22s-15.502-7.194-23.265-9.869c-7.764-2.675-15.05-5.313-19.672-8.168c-4.623-2.855-6.052-4.703-6.283-7.963c-.16-2.252 1.217-6.168 4.886-10.777c3.67-4.61 9.218-9.549 14.946-13.858c11.454-8.617 23.296-14.718 23.296-14.718zM256 187.501c-13 0-21.792 5.914-28.512 15.994c-2.782 4.173-5.027 9.1-6.715 14.465c11.32-1.607 23.07-2.455 35.227-2.455s23.906.848 35.227 2.455c-1.688-5.365-3.933-10.292-6.715-14.465c-6.72-10.08-15.512-15.994-28.512-15.994m0 46c-119.427 0-193.752 86.039-198.54 174.004h397.08C449.751 319.54 375.426 233.5 256 233.5zM22.363 412.14L9.637 424.866C27.757 442.987 48 443.501 64 443.501h384c16 0 36.242-.514 54.363-18.635l-12.726-12.726C475.757 426.019 464 425.505 448 425.505H64c-16 0-27.758.514-41.637-13.365m90.451 49.361l20.002 30.004h246.368l20.002-30.004z"/></svg>
+                      ) : (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" className="h-8 w-8 text-green-600" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M322 416c0 35.35-20.65 64-56 64H134c-35.35 0-56-28.65-56-64m258-80c17.67 0 32 17.91 32 40h0c0 22.09-14.33 40-32 40H64c-17.67 0-32-17.91-32-40h0c0-22.09 14.33-40 32-40"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M344 336H179.31a8 8 0 0 0-5.65 2.34l-26.83 26.83a4 4 0 0 1-5.66 0l-26.83-26.83a8 8 0 0 0-5.65-2.34H56a24 24 0 0 1-24-24h0a24 24 0 0 1 24-24h288a24 24 0 0 1 24 24h0a24 24 0 0 1-24 24ZM64 276v-.22c0-55 45-83.78 100-83.78h72c55 0 100 29 100 84v-.22M241 112l7.44 63.97"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M256 480h139.31a32 32 0 0 0 31.91-29.61L463 112"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="m368 112l16-64l47-16"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M224 112h256"/></svg>
+                      )}
                     </div>
                     <h3 className="text-2xl font-bold text-green-800">{category.name}</h3>
                     <div className="mt-4 flex items-center text-sm font-medium text-green-600">
@@ -51,9 +42,23 @@ export default function Home() {
                 </Link>
               ))}
             </div>
+
+            <div className="flex justify-center items-center gap-10 mt-[100px]">
+              <a href="#">
+                <img src="/instagram.png" alt="Instagram" className="w-[48px] h-[48px]" />
+              </a>
+              <a href="#">
+                <img src="/facebook.png" alt="Instagram" className="w-[48px] h-[48px]" />
+              </a>
+              <a href="#">
+                <img src="/telegram.png" alt="Instagram" className="w-[48px] h-[48px]" />
+              </a>
+            </div>
           </div>
         </section>
       </main>
     </div>
   )
 }
+
+
