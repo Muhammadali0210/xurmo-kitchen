@@ -1,14 +1,16 @@
 import mongoose from 'mongoose';
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://muhammadalinematjonov03:GSJhuxTXdscFRexD@nextjsdb.oxnhole.mongodb.net/nextjsdb";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://kitchen:3fk4lJ4EnDABuq0E@nextjsdb.oxnhole.mongodb.net/nextjsdb";
 
 if (!MONGODB_URI) {
+  console.log("Please define the MONGODB_URI environment variable inside .env.local");
+  
   throw new Error('Please define the MONGODB_URI environment variable');
 }
 
 declare global {
 	var mongoose: any;
-  }
+}
 
 let cached = global.mongoose as any;
 

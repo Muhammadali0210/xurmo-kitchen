@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 
 export default function Header() {
   return (
@@ -31,6 +31,9 @@ export default function Header() {
             </Button>
           </SheetTrigger>
           <SheetContent side="right">
+            <SheetTitle ></SheetTitle>
+            <SheetDescription>
+            </SheetDescription>
             <nav className="grid gap-6 text-lg font-medium">
               <Link href="/" className="text-green-700 hover:text-green-500">
                 Bosh Sahifa

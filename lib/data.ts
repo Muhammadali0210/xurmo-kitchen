@@ -2,6 +2,7 @@ export interface Category {
   id: string
   name: string
   slug: string
+  type: string
 }
 
 export interface Dish {
@@ -20,11 +21,13 @@ let mockCategories: Category[] = [
     id: "1",
     name: "Oshxona Taomlari",
     slug: "kitchen-dishes",
+    type: "oshxona"
   },
   {
     id: "2",
     name: "Choyxona Taomlari",
     slug: "tearoom-dishes",
+    type: "choyxona"
   },
 ]
 
@@ -140,79 +143,27 @@ export function getCategoryBySlug(slug: string): Category | undefined {
   return mockCategories.find((category) => category.slug === slug)
 }
 
-export function addCategory(category: Omit<Category, "id">): Category {
-  const newCategory = {
-    ...category,
-    id: String(mockCategories.length + 1),
-  }
-  mockCategories.push(newCategory)
-  return newCategory
+export function getCategoryBytype(type: string): Category | undefined {
+  return mockCategories.find((category) => category.type === type)
 }
 
-export function updateCategory(id: string, category: Partial<Category>): Category | undefined {
-  const index = mockCategories.findIndex((c) => c.id === id)
-  if (index !== -1) {
-    mockCategories[index] = { ...mockCategories[index], ...category }
-    return mockCategories[index]
-  }
-  return undefined
-}
-
-export function deleteCategory(id: string): Category | undefined {
-  const index = mockCategories.findIndex((c) => c.id === id)
-  if (index !== -1) {
-    const category = mockCategories[index]
-    mockCategories = mockCategories.filter((c) => c.id !== id)
-    // Delete all dishes in this category
-    mockDishes = mockDishes.filter((dish) => dish.categoryId !== id)
-    return category
-  }
-  return undefined
-}
 
 // Dish functions
 export function getAllDishes(): Dish[] {
   return mockDishes
 }
 
-export function getDishes(categoryId: string): Dish[] {
-  return mockDishes.filter((dish) => dish.categoryId === categoryId)
-}
+// export function getDishes(categoryId: string): Dish[] {
+//   return mockDishes.filter((dish) => dish.categoryId === categoryId)
+// }
 
-export function getDishesByCategory(categorySlug: string): Dish[] {
-  const category = getCategoryBySlug(categorySlug)
-  if (!category) return []
-  return mockDishes.filter((dish) => dish.categoryId === category.id)
-}
+// export function getDishesByCategory(categorySlug: string): Dish[] {
+//   const category = getCategoryBySlug(categorySlug)
+//   if (!category) return []
+//   return mockDishes.filter((dish) => dish.categoryId === category.id)
+// }
 
 export function getDish(id: string): Dish | undefined {
   return mockDishes.find((dish) => dish.id === id)
 }
 
-export function addDish(dish: Omit<Dish, "id">): Dish {
-  const newDish = {
-    ...dish,
-    id: String(mockDishes.length + 1),
-  }
-  mockDishes.push(newDish)
-  return newDish
-}
-
-export function updateDish(id: string, dish: Partial<Dish>): Dish | undefined {
-  const index = mockDishes.findIndex((d) => d.id === id)
-  if (index !== -1) {
-    mockDishes[index] = { ...mockDishes[index], ...dish }
-    return mockDishes[index]
-  }
-  return undefined
-}
-
-export function deleteDish(id: string): Dish | undefined {
-  const index = mockDishes.findIndex((d) => d.id === id)
-  if (index !== -1) {
-    const dish = mockDishes[index]
-    mockDishes = mockDishes.filter((d) => d.id !== id)
-    return dish
-  }
-  return undefined
-}
