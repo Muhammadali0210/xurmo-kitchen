@@ -45,13 +45,7 @@ export default function DishForm({ dish, onSuccess }: DishFormProps) {
       }
 
       if (dish) {
-        console.log("Updating dish:", dishData);
-        try {
-          const result = await updateFood(dishData, dish._id as string);
-          console.log("updated successfully", result);
-        } catch (error) {
-          console.log("Something went wrong", error);
-        }
+        await updateFood(dishData, dish._id as string);
       } else {
         await createFood(dishData)
       }

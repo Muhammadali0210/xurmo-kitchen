@@ -60,8 +60,8 @@ export default function AdminDashboardPage() {
   }
 
   return (
-    <div className="bg-gradient-to-b from-green-50 to-white min-h-screen p-4 md:p-8">
-      <Card className="border border-gray-200 mt-[60px] lg:w-[80%] 2xl:w-[1200px] mx-auto">
+    <div className="bg-gradient-to-b from-green-50 to-white min-h-screen">
+      <Card className="border border-gray-200 w-full mx-auto">
         <CardHeader className="flex flex-row items-center justify-between">
           <CardTitle className="text-2xl font-bold text-green-800">Admin Panel</CardTitle>
           <Dialog open={isAddDishDialogOpen} onOpenChange={setIsAddDishDialogOpen}>
