@@ -22,10 +22,30 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { usePathname } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 export function UserMenu() {
     const pathname = usePathname()
-    const isAdminPage = pathname.startsWith('/admin')
+    const isAdminPage = pathname.startsWith('/admin');
+    const router = useRouter();
+
+    const pageHandler = (path: string) => {
+        router.push(path)
+    }
+
+    const handleLogout = async () => {
+        try {
+            const res = await fetch('/api/logout')
+            if (res.ok) {
+              router.push('/auth/login')
+            } else {
+              console.error('Logout failed')
+              alert('Logout failed')
+            }
+        } catch (error) {
+          console.error("Logout failed", error)        
+        }
+      }
 
     return (
         <DropdownMenu>
@@ -40,15 +60,15 @@ export function UserMenu() {
                         <DropdownMenuLabel>Sahifalar</DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <DropdownMenuGroup>
-                            <DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => pageHandler('/')}>
                                 <Home />
                                 <span>Bosh sahifa</span>
                             </DropdownMenuItem>
-                            <DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => pageHandler('/contacts')}>
                                 <Contact />
                                 <span>Kontaktlar</span>
                             </DropdownMenuItem>
-                            <DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => window.open('https://t.me/+998940234567', '_blank')}>
                                 <MessageSquare />
                                 <span>Bog'lanish</span>
                             </DropdownMenuItem>
@@ -59,36 +79,36 @@ export function UserMenu() {
                         <DropdownMenuLabel>Admin Sahifalar</DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <DropdownMenuGroup>
-                            <DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => pageHandler('/')}>
                                 <Home />
                                 <span>Bosh sahifa</span>
                             </DropdownMenuItem>
                         </DropdownMenuGroup>
                         <DropdownMenuSeparator />
                         <DropdownMenuGroup>
-                            <DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => pageHandler('/admin')}>
                                 <LayoutDashboard />
                                 <span>Dashboard</span>
                             </DropdownMenuItem>
-                            <DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => pageHandler('/admin/menu')}>
                                 <UtensilsCrossed />
                                 <span>Menyular</span>
                             </DropdownMenuItem>
-                            <DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => pageHandler('/admin/categories')}>
                                 <FolderTree />
                                 <span>Kategoriyalar</span>
                             </DropdownMenuItem>
-                            <DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => pageHandler('/admin/contacts')}>
                                 <Phone />
                                 <span>Kontaktlar</span>
                             </DropdownMenuItem>
-                            <DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => pageHandler('/admin/settings')}>
                                 <Settings />
                                 <span>Settings</span>
                             </DropdownMenuItem>
                         </DropdownMenuGroup>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem className="hover:text-red-600 hover:bg-red-50">
+                        <DropdownMenuItem className="hover:text-red-600 hover:bg-red-50" onClick={handleLogout}>
                             <LogOut />
                             <span>Log out</span>
                         </DropdownMenuItem>
