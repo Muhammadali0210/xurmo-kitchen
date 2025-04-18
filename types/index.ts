@@ -7,3 +7,9 @@ export interface IFood {
     image: string;
     category: string;
 }
+
+export interface ICategory  {
+    _id?: string
+    name: string
+    type: string
+}
