@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { login } from "@/lib/auth"
+// import login from "@/action/login.action"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -24,16 +24,18 @@ export default function AdminLoginPage() {
     setLoading(true)
 
     try {
-      const user = await login(username, password)
-      if (user) {
-        // In a real app, you would store the user in a session or context
-        // For this demo, we'll just redirect to the dashboard
-        router.push("/admin/dashboard")
-      } else {
-        setError("Noto'g'ri foydalanuvchi nomi yoki parol")
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        body: JSON.stringify({ username, password }),
+        headers: { 'Content-Type': 'application/json' },
+      })
+      if (!res.ok) {
+        const error = await res.json()
+        throw new Error(error.message || "Tizimga kirishda xatolik yuz berdi");
       }
+      router.push('/admin')
     } catch (err) {
-      setError("Tizimga kirishda xatolik yuz berdi")
+      setError("Foydalanuvchi nomi yoki parol xato");
     } finally {
       setLoading(false)
     }
@@ -93,3 +95,4 @@ export default function AdminLoginPage() {
     </div>
   )
 }
+
