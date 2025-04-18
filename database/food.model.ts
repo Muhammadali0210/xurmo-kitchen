@@ -8,10 +8,9 @@ const FoodSchema = new Schema<IFood>(
     currency: { type: String, required: true },
     description: { type: String, required: true },
     image: { type: String },
-    category: {
+    categoryId: {
       type: String,
-      enum: ['oshxona', 'choyxona'],
-      default: 'oshxona'
+      required: true
     }
   },
   { timestamps: true }

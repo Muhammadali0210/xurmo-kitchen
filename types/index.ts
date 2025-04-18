@@ -5,7 +5,7 @@ export interface IFood {
     currency: string;
     description: string;
     image: string;
-    category: string;
+    categoryId: string;
 }
 
 export interface ICategory  {

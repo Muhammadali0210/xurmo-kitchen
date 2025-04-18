@@ -36,19 +36,19 @@ export const getAllCategories = async () => {
     }
 }
 
-// export const getCategoryByType = async (type: string) => {
-//     try {
-//         await dbConnect()
-//         const dbCategory = await Category.findOne({type: type});
-//         return JSON.parse(JSON.stringify(dbCategory));
-//     } catch (error) {
-//         return {
-//             success: false,
-//             message: "Something went wrong",
-//             error
-//         }
-//     }
-// }
+export const getCategoryById = async (id: string) => {
+    try {
+        await dbConnect()
+        const dbCategory = await Category.findOne({_id: id});
+        return dbCategory;
+    } catch (error) {
+        return {
+            success: false,
+            message: "Something went wrong",
+            error
+        }
+    }
+}
 
 // export const getCategoryById = async (id: string) => {
 //     try {

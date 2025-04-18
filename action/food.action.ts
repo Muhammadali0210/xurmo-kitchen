@@ -21,10 +21,10 @@ export const createFood = async (data: IFood) => {
     }
 }
 
-export const getFoodByCategory = async (category: string) => {
+export const getFoodByCategory = async (categoryId: string) => {
     try {
         await dbConnect()
-        const dbfood = await Food.find({category: category});
+        const dbfood = await Food.find({categoryId: categoryId});
         return JSON.parse(JSON.stringify(dbfood));
     } catch (error) {
         return {

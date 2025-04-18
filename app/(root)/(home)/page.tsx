@@ -1,10 +1,11 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import { getAllCategories } from "@/lib/data"
 import CategoryCard from "@/components/cards/category.card"
+import CategoryList from "./_components/category-list"
+import { getAllCategories } from "@/action/category.action"
 
-export default function Home() {
-  const categories = getAllCategories()
+export default async function Home() {
+  const categories = await getAllCategories()
 
   return (
     // <div className="flex min-h-screen flex-col bg-gradient-to-b from-green-50 to-white" style={{ backgroundImage: "url('/image.webp')", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }} >
@@ -20,13 +21,9 @@ export default function Home() {
                 </h1>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2 md:gap-12 lg:gap-16 mt-12">
-              {categories.map((category) => (
-                <CategoryCard key={category.id} category={category} />
-              ))}
-            </div>
+            <CategoryList categories={categories} />
 
-            <div className="flex justify-center items-center gap-10 lg:mt-[100px] mt-[45px]">
+            {/* <div className="flex justify-center items-center gap-10 lg:mt-[100px] mt-[45px]">
               <a href="#">
                 <img src="/instagram.png" alt="Instagram" className="w-[48px] h-[48px]" />
               </a>
@@ -36,7 +33,7 @@ export default function Home() {
               <a href="#">
                 <img src="/telegram.png" alt="Instagram" className="w-[48px] h-[48px]" />
               </a>
-            </div>
+            </div> */}
           </div>
         </section>
       </main>
