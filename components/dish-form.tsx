@@ -25,6 +25,8 @@ export default function DishForm({ dish, onSuccess }: DishFormProps) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
 
+  
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError("")
@@ -47,7 +49,7 @@ export default function DishForm({ dish, onSuccess }: DishFormProps) {
       if (dish) {
         await updateFood(dishData, dish._id as string);
       } else {
-        await createFood(dishData)
+        await createFood(dishData);
       }
 
       onSuccess()

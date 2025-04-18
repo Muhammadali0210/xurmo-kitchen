@@ -74,6 +74,7 @@ export const updateCategory = async (data: ICategory, id: string) => {
                 message: "Category not found"
             };
         }
+        revalidatePath("/admin/categories")
         return {
             success: true,
             message: "Category updated successfully"
@@ -91,6 +92,7 @@ export const deleteCategory = async (id: string) => {
     try {
         await dbConnect()
         await Category.findOneAndDelete({ _id: id });
+        revalidatePath("/admin/categories");
         return {
             success: true,
             message: "Category updated successfully"

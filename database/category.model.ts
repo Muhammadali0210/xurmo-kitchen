@@ -3,8 +3,7 @@ import type { ICategory } from "@/types";
 
 const CategorySchema = new Schema<ICategory>(
   {
-    name: String,
-    type: String
+    name: String
   },
   { timestamps: true }
 );

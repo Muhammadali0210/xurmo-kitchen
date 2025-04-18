@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import type { ICategory } from "@/types"
-import { createCategory } from "@/action/category.action"
+import { createCategory, updateCategory } from "@/action/category.action"
 
 interface CategoryFormProps {
   category?: ICategory
@@ -14,7 +14,6 @@ interface CategoryFormProps {
 
 export default function CategoryForm({ category, onSuccess }: CategoryFormProps) {
   const [name, setName] = useState(category?.name || "");
-  const [type, setType] = useState(category?.type || "");
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
 
@@ -24,19 +23,17 @@ export default function CategoryForm({ category, onSuccess }: CategoryFormProps)
     setLoading(true)
 
     try {
-      if (!name || !type) {
+      if (!name) {
         throw new Error("Barcha maydonlarni to'ldiring")
       }
 
       const categoryData = {
-        name,
-        type: type.toLowerCase()
+        name
       }
 
       if (category) {
         console.log("Category updated:", categoryData);
-        
-        // updateCategory(category.id, categoryData)
+        await updateCategory(categoryData, category._id as string);
       } else {
         await createCategory(categoryData)
       }
@@ -63,19 +60,7 @@ export default function CategoryForm({ category, onSuccess }: CategoryFormProps)
           required
         />
       </div>
-
-      <div className="space-y-2">
-        <Label htmlFor="slug">URL manzil (type)</Label>
-        <Input
-          id="slug"
-          value={type}
-          onChange={(e) => setType(e.target.value)}
-          className="border-green-200 focus:border-green-400"
-          required
-        />
-        <p className="text-xs text-muted-foreground">Faqat kichik harflar, raqamlar va chiziqchalardan foydalaning</p>
-      </div>
-
+      
       <Button type="submit" className="w-full bg-green-600 hover:bg-green-700" disabled={loading}>
         {loading ? "Saqlanmoqda..." : category ? "Saqlash" : "Qo'shish"}
       </Button>
