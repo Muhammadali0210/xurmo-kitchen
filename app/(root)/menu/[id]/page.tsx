@@ -2,9 +2,10 @@ import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft } from "lucide-react"
-import { getDish, getCategoryBytype } from "@/lib/data"
+// import { getDish, getCategoryBytype } from "@/lib/data"
 import { getFoodById } from "@/action/food.action"
 import { IFood } from "@/types"
+import { getCategoryById } from "@/action/category.action"
 
 export default async function DishPage({ params }: { params: { id: string } }) {
   const { id } = await params;
@@ -15,7 +16,7 @@ export default async function DishPage({ params }: { params: { id: string } }) {
     notFound()
   }
 
-  const category = getCategoryBytype(dish.category);
+  const category = await getCategoryById(dish.categoryId);
 
   if (!category) {
     notFound()
@@ -25,7 +26,7 @@ export default async function DishPage({ params }: { params: { id: string } }) {
     <div className="bg-gradient-to-b from-green-50 to-white min-h-screen">
       <div className="container px-4 py-12 md:px-6 md:py-16">
         <Link
-          href={`/${category.slug}`}
+          href={`/${category._id}`}
           className="mb-6 mt-[40px] inline-flex items-center text-sm font-medium text-green-600 hover:text-green-800"
         >
           <ArrowLeft className="mr-1 h-4 w-4" />

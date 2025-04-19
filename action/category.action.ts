@@ -50,20 +50,6 @@ export const getCategoryById = async (id: string) => {
     }
 }
 
-// export const getCategoryById = async (id: string) => {
-//     try {
-//         await dbConnect()
-//         const dbCategory = await Category.findById(id);
-//         return JSON.parse(JSON.stringify(dbCategory));
-//     } catch (error) {
-//         return {
-//             success: false,
-//             message: "Something went wrong",
-//             error
-//         }
-//     }
-// }
-
 export const updateCategory = async (data: ICategory, id: string) => {
     try {
         await dbConnect()

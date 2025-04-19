@@ -11,5 +11,17 @@ export interface IFood {
 export interface ICategory  {
     _id?: string
     name: string
-    // type: string
+}
+
+export interface IContact {
+    address: string
+    email: string
+    workingHours: string
+    phones: string[]
+    socialMedia: {
+        facebook?: string
+        instagram?: string
+        telegram?: string
+        youtube?: string
+    }
 }
