@@ -33,5 +33,5 @@ export const updateContact = async (payload: IContact) => {
       contact = await Contact.create(payload)
     }
     revalidatePath("/admin/contacts")
-    return contact
+    return JSON.parse(JSON.stringify(contact))
   }

@@ -11,7 +11,7 @@ import { IContact } from "@/types"
 import { Plus, Trash } from "lucide-react"
 import { useEffect, useState } from "react"
 
-const ContactForm = ({contact}: {contact: IContact}) => {
+export default function ContactForm({contact}: {contact: IContact}) {
     const [error, setError] = useState("")
     const [success, setSuccess] = useState("")
     const [loading, setLoading] = useState(false)
@@ -230,5 +230,3 @@ const ContactForm = ({contact}: {contact: IContact}) => {
         </CardContent>
   )
 }
-
-export default ContactForm
