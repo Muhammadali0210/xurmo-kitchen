@@ -8,20 +8,22 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import type { IFood } from "@/types"
+import type { ICategory, IFood } from "@/types"
 import { createFood, updateFood } from "@/action/food.action"
 interface DishFormProps {
   dish?: IFood
+  categories: ICategory[]
   onSuccess: () => void
+  pathName: string
 }
 
-export default function DishForm({ dish, onSuccess }: DishFormProps) {
+export default function DishForm({ dish, categories, onSuccess, pathName }: DishFormProps) {
   const [title, setTitle] = useState(dish?.title || "")
   const [price, setPrice] = useState(dish?.price.toString() || "")
   const [currency, setCurrency] = useState(dish?.currency || "USZ")
   const [description, setDescription] = useState(dish?.description || "")
   const [image, setImage] = useState(dish?.image || "/placeholder.svg?height=400&width=600")
-  const [category, setCategory] = useState(dish?.category || "oshxona")
+  const [categoryId, setCategoryId] = useState(dish?.categoryId || "oshxona")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
 
@@ -33,7 +35,7 @@ export default function DishForm({ dish, onSuccess }: DishFormProps) {
     setLoading(true)
 
     try {
-      if (!title || !price || !description || !image || !category) {
+      if (!title || !price || !description || !image || !categoryId) {
         throw new Error("Barcha maydonlarni to'ldiring")
       }
 
@@ -43,13 +45,13 @@ export default function DishForm({ dish, onSuccess }: DishFormProps) {
         currency,
         description,
         image,
-        category,
+        categoryId
       }
 
       if (dish) {
-        await updateFood(dishData, dish._id as string);
+        await updateFood(dishData, dish._id as string, pathName);
       } else {
-        await createFood(dishData);
+        await createFood(dishData, pathName);
       }
 
       onSuccess()
@@ -123,17 +125,16 @@ export default function DishForm({ dish, onSuccess }: DishFormProps) {
 
       <div className="space-y-2">
         <Label htmlFor="category">Kategoriya</Label>
-        <Select value={category} onValueChange={setCategory}>
+        <Select value={categoryId} onValueChange={setCategoryId}>
           <SelectTrigger className="border-green-200 focus:border-green-400">
             <SelectValue placeholder="Kategoriyani tanlang" />
           </SelectTrigger>
           <SelectContent>
-              <SelectItem value={'oshxona'}>
-                Oshxona taomlari
+          {categories.map((category) => (
+              <SelectItem key={category._id} value={category._id as string}>
+                {category.name}
               </SelectItem>
-              <SelectItem value={'choyxona'}>
-                Choyxona taomlari
-              </SelectItem>
+          ))}
           </SelectContent>
         </Select>
       </div>

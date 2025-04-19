@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
     response.cookies.set('admin-auth', 'true', {
       httpOnly: true,
       path: '/',
-      maxAge: 60 * 60 * 24 // 1 kun
+      maxAge: 60 * 60 * 2 // 2 soat
     })
 
     return response
