@@ -29,7 +29,6 @@ export default async function AdminDashboardPage({ searchParams }: Props) {
         <MenuHeader categories={categories} />
         <MenuList dishes={dishes} categories={categories} selectedId={selectedCategoryId} />
       </Card>
-
     </div>
   )
 }

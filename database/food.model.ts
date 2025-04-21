@@ -7,7 +7,7 @@ const FoodSchema = new Schema<IFood>(
     price: { type: Number, required: true },
     currency: { type: String, required: true },
     description: { type: String, required: true },
-    image: { type: String },
+    image: { type: String, required: true },
     categoryId: {
       type: String,
       required: true
