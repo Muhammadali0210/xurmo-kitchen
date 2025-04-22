@@ -15,7 +15,7 @@ const CategoryHeader = () => {
     };
 
     return (
-        <CardHeader className="flex flex-row items-center justify-between">
+        <CardHeader className="flex flex-row items-center justify-between max-md:p-2">
             <CardTitle className="text-xl font-bold text-green-800">Kategoriyalar</CardTitle>
             <Dialog open={isAddCategoryDialogOpen} onOpenChange={setIsAddCategoryDialogOpen}>
                 <DialogTrigger asChild>

@@ -52,7 +52,7 @@ const MenuList = ({ dishes, categories, selectedId }: MenuListProps) => {
     }
     return (
         <>
-            <CardContent>
+            <CardContent className="max-md:p-2">
                 <Tabs defaultValue="dishes" value={activeTab} onValueChange={handleChangeCategory}>
                     <TabsList className="mb-4 flex max-sm:overflow-x-auto scrollbar-hide sm:flex-wrap max-sm:pl-[220px]">
                         {categories.map((category) => (

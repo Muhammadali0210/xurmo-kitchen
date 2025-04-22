@@ -34,7 +34,7 @@ export default function AdminLoginPage() {
         throw new Error(error.message || "Tizimga kirishda xatolik yuz berdi");
       }
       router.push('/admin');
-      console.log("Kirish muvaffaqiyatli", res);
+      console.log("Kirish muvaffaqiyatli");
       
     } catch (err) {
       setError("Foydalanuvchi nomi yoki parol xato");

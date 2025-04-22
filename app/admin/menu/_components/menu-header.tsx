@@ -18,7 +18,7 @@ const MenuHeader = ({ categories }: { categories: ICategory[] }) => {
     }
 
     return (
-        <CardHeader className="flex flex-row items-center justify-between">
+        <CardHeader className="flex flex-row items-center justify-between max-md:p-2">
             <CardTitle className="text-2xl font-bold text-green-800">Menyular</CardTitle>
             <Dialog open={isAddDishDialogOpen} onOpenChange={setIsAddDishDialogOpen}>
                 <DialogTrigger asChild>

@@ -43,8 +43,8 @@ const CategoryList = ({ categories }: { categories: ICategory[] }) => {
             )}
             <div className="grid grid-cols-1 gap-4">
                 {categories.map((category) => (
-                    <Card key={category._id} className="overflow-hidden">
-                        <div className="p-4 flex items-center justify-between">
+                    <Card key={category._id} className="overflow-hidden max-md:p-0">
+                        <div className="md:p-4 p-2  flex items-center justify-between">
                             <div>
                                 <h3 className="font-medium">{category.name}</h3>
                             </div>

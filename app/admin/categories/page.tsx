@@ -9,9 +9,9 @@ export default async function AdminCategoriesPage() {
 
   return (
     <div className="space-y-6">
-      <Card className="border-2 border-green-100">
-        <CategoryHeader />
-        <CardContent>
+      <Card className="border-2 border-green-100 max-md:p-0 p-0">
+        <CategoryHeader/>
+        <CardContent className="max-md:p-2">
           <CategoryList categories={categories} />
         </CardContent>
       </Card>

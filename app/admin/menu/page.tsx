@@ -25,7 +25,7 @@ export default async function AdminDashboardPage({ searchParams }: Props) {
 
   return (
     <div className="bg-gradient-to-b from-green-50 to-white min-h-screen">
-      <Card className="border border-gray-200 w-full mx-auto">
+      <Card className="border border-gray-200 w-full mx-auto p-0">
         <MenuHeader categories={categories} />
         <MenuList dishes={dishes} categories={categories} selectedId={selectedCategoryId} />
       </Card>
