@@ -54,9 +54,9 @@ const MenuList = ({ dishes, categories, selectedId }: MenuListProps) => {
         <>
             <CardContent>
                 <Tabs defaultValue="dishes" value={activeTab} onValueChange={handleChangeCategory}>
-                    <TabsList className="mb-4 flex gap-4">
+                    <TabsList className="mb-4 flex max-sm:overflow-x-auto scrollbar-hide sm:flex-wrap max-sm:pl-[220px]">
                         {categories.map((category) => (
-                            <TabsTrigger key={category._id} value={category._id as string}>{category.name}</TabsTrigger>
+                            <TabsTrigger className="min-w-fit whitespace-nowrap px-3 py-1 text-sm" key={category._id} value={category._id as string}>{category.name}</TabsTrigger>
                         ))}
                     </TabsList>
                     {categories.map((category) => (

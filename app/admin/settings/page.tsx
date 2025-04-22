@@ -8,7 +8,6 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { changePassword } from "@/lib/auth"
 
 export default function AdminSettingsPage() {
   const [currentPassword, setCurrentPassword] = useState("")
@@ -19,35 +18,35 @@ export default function AdminSettingsPage() {
   const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setError("")
-    setSuccess("")
-    setLoading(true)
+    // e.preventDefault()
+    // setError("")
+    // setSuccess("")
+    // setLoading(true)
 
-    try {
-      if (newPassword !== confirmPassword) {
-        throw new Error("Yangi parol va tasdiqlash paroli mos kelmaydi")
-      }
+    // try {
+    //   if (newPassword !== confirmPassword) {
+    //     throw new Error("Yangi parol va tasdiqlash paroli mos kelmaydi")
+    //   }
 
-      if (newPassword.length < 8) {
-        throw new Error("Yangi parol kamida 8 ta belgidan iborat bo'lishi kerak")
-      }
+    //   if (newPassword.length < 8) {
+    //     throw new Error("Yangi parol kamida 8 ta belgidan iborat bo'lishi kerak")
+    //   }
 
-      const result = await changePassword(currentPassword, newPassword)
+    //   const result = await changePassword(currentPassword, newPassword)
 
-      if (result.success) {
-        setSuccess("Parol muvaffaqiyatli o'zgartirildi")
-        setCurrentPassword("")
-        setNewPassword("")
-        setConfirmPassword("")
-      } else {
-        throw new Error(result.message || "Parolni o'zgartirishda xatolik yuz berdi")
-      }
-    } catch (err: any) {
-      setError(err.message || "Parolni o'zgartirishda xatolik yuz berdi")
-    } finally {
-      setLoading(false)
-    }
+    //   if (result.success) {
+    //     setSuccess("Parol muvaffaqiyatli o'zgartirildi")
+    //     setCurrentPassword("")
+    //     setNewPassword("")
+    //     setConfirmPassword("")
+    //   } else {
+    //     throw new Error(result.message || "Parolni o'zgartirishda xatolik yuz berdi")
+    //   }
+    // } catch (err: any) {
+    //   setError(err.message || "Parolni o'zgartirishda xatolik yuz berdi")
+    // } finally {
+    //   setLoading(false)
+    // }
   }
 
   return (

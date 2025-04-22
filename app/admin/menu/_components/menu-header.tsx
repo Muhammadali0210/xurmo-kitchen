@@ -24,7 +24,7 @@ const MenuHeader = ({ categories }: { categories: ICategory[] }) => {
                 <DialogTrigger asChild>
                     <Button className="bg-green-600 hover:bg-green-700">
                         <Plus className="mr-2 h-4 w-4" />
-                        Yangi taom
+                        Qo'shish
                     </Button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[600px]">

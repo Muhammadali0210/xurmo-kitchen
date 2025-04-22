@@ -32,7 +32,6 @@ export default function CategoryForm({ category, onSuccess }: CategoryFormProps)
       }
 
       if (category) {
-        console.log("Category updated:", categoryData);
         await updateCategory(categoryData, category._id as string);
       } else {
         await createCategory(categoryData)

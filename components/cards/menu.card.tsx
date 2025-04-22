@@ -6,7 +6,7 @@ import React from 'react'
 const MenuCard = ({dish}: {dish: IFood}) => {
   return (
     <Link href={`/menu/${dish._id}`}>
-      <div className="flex items-center gap-3 bg-white rounded-xl shadow-lg p-3 hover:shadow-md transition">
+      <div className="flex items-center gap-3 bg-white rounded-xl shadow-md p-3 hover:shadow-md transition">
         <div className="">
           <Image
             src={dish.image || "/placeholder.svg"}

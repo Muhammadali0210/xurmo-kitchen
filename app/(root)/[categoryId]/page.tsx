@@ -3,6 +3,8 @@ import { getDishesByCategoryId } from "@/action/food.action"
 import { ICategory, IFood } from "@/types"
 import MenuList from "./_components/menu-list"
 import { getCategoryById } from "@/action/category.action"
+import Link from "next/link"
+import { ArrowLeft } from "lucide-react"
 
 
 export default async function CategoryPage({ params }: { params: { categoryId: string } }) {
@@ -18,6 +20,12 @@ export default async function CategoryPage({ params }: { params: { categoryId: s
   return (
     <div className="bg-gradient-to-b from-green-50 to-white min-h-screen">
       <div className="container px-4 py-12 mt-[40px] md:px-6 md:py-16">
+        <Link href="/">
+          <div className="mb-3 inline-flex gap-2 items-center text-sm bg-white shadow-lg py-1 px-3 rounded-full font-medium text-green-600 hover:text-green-800">
+            <ArrowLeft size={16} />
+            <p>Qaytish</p>
+          </div>
+        </Link>
         <div className="mb-8 text-center">
           <h1 className="text-3xl font-bold text-green-800">{category.name}</h1>
         </div>

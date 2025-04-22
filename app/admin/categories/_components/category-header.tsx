@@ -20,8 +20,8 @@ const CategoryHeader = () => {
             <Dialog open={isAddCategoryDialogOpen} onOpenChange={setIsAddCategoryDialogOpen}>
                 <DialogTrigger asChild>
                     <Button className="bg-green-600 hover:bg-green-700">
-                        <Plus className="mr-2 h-4 w-4" />
-                        Yangi kategoriya
+                        <Plus className="mr-1 h-4 w-4" />
+                        Qo'shish
                     </Button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[600px]">

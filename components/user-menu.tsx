@@ -102,10 +102,10 @@ export function UserMenu() {
                                 <Phone />
                                 <span>Kontaktlar</span>
                             </DropdownMenuItem>
-                            <DropdownMenuItem onClick={() => pageHandler('/admin/settings')}>
+                            {/* <DropdownMenuItem onClick={() => pageHandler('/admin/settings')}>
                                 <Settings />
                                 <span>Settings</span>
-                            </DropdownMenuItem>
+                            </DropdownMenuItem> */}
                         </DropdownMenuGroup>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem className="hover:text-red-600 hover:bg-red-50" onClick={handleLogout}>
