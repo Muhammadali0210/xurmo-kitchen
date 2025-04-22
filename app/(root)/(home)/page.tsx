@@ -1,6 +1,3 @@
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import CategoryCard from "@/components/cards/category.card"
 import CategoryList from "./_components/category-list"
 import { getAllCategories } from "@/action/category.action"
 
@@ -22,18 +19,6 @@ export default async function Home() {
               </div>
             </div>
             <CategoryList categories={categories} />
-
-            {/* <div className="flex justify-center items-center gap-10 lg:mt-[100px] mt-[45px]">
-              <a href="#">
-                <img src="/instagram.png" alt="Instagram" className="w-[48px] h-[48px]" />
-              </a>
-              <a href="#">
-                <img src="/facebook.png" alt="Instagram" className="w-[48px] h-[48px]" />
-              </a>
-              <a href="#">
-                <img src="/telegram.png" alt="Instagram" className="w-[48px] h-[48px]" />
-              </a>
-            </div> */}
           </div>
         </section>
       </main>

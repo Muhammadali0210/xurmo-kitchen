@@ -40,8 +40,8 @@ export default async function DishPage({ params }: { params: { id: string } }) {
               </div>
               <div className="flex flex-col justify-between lg:p-6 p-4">
                 <div className="">
-                  <h1 className="text-3xl font-bold text-green-800 inline">{dish.title}</h1>
-                  <div className="mt-4 rounded-full bg-green-100 px-4 py-2 text-xl font-bold text-green-800">
+                  <h1 className="text-3xl font-bold text-green-800">{dish.title}</h1>
+                  <div className="mt-4 mr-auto inline-block rounded-full bg-green-100 px-4 py-2 text-xl font-bold text-green-800">
                     {dish.price} {dish.currency}
                   </div>
                   <div className="mt-6 text-gray-700">
