@@ -24,7 +24,7 @@ export default function DishForm({ dish, categories, onSuccess, pathName }: Dish
   const [price, setPrice] = useState(dish?.price.toString() || "")
   const [currency, setCurrency] = useState(dish?.currency || "USZ")
   const [description, setDescription] = useState(dish?.description || "")
-  const [image, setImage] = useState(dish?.image || "")
+  const [image, setImage] = useState(dish?.image || "/placeholder.svg")
   const [categoryId, setCategoryId] = useState(dish?.categoryId || "oshxona")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
@@ -69,8 +69,6 @@ export default function DishForm({ dish, categories, onSuccess, pathName }: Dish
       }
 
       if (dish) {
-        console.log("Dish updated:", dishData);
-        
         await updateFood(dishData, dish._id as string, pathName);
       } else {
         await createFood(dishData, pathName);

@@ -1,18 +1,23 @@
+"use server"
+
 const uploadToImageKit = async (file: File) => {
+    const { IMAGEKIT_PUBLIC_KEY: publicKey } = process.env
+    const { IMAGEKIT_PRIVATE_KEY: privateKey } = process.env
     try {
+        const url = `https://upload.imagekit.io/api/v1/files/upload`
         const formData = new FormData()
         formData.append("file", file)
+        formData.append("publicKey", publicKey as string)
         formData.append("fileName", file.name)
-        formData.append("publicKey", "public_bmq/JUe1encDwcaErb/sRG651VA=")
         formData.append("uploadPreset", "upload_400_400") // Agar ishlatsa
         formData.append("folder", "/dishes")
 
-        const res = await fetch("https://upload.imagekit.io/api/v1/files/upload", {
+        const res = await fetch(url, {
             method: "POST",
             body: formData,
             headers: {
-                Authorization: "Basic " + btoa("private_zuJ7heH3aQM1AG2/8OP5r34mOMc=" + ":")
-            }
+                Authorization: `Basic ${btoa(`${privateKey}:`)}`,
+            },
         })
 
         const data = await res.json()

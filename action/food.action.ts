@@ -18,7 +18,6 @@ export const createFood = async (data: IFood, pathName?: string) => {
         return {
             success: false,
             message: "Something went wrong",
-            error
         }
     }
 }
