@@ -33,8 +33,9 @@ export default function AdminLoginPage() {
         const error = await res.json()
         throw new Error(error.message || "Tizimga kirishda xatolik yuz berdi");
       }
-      router.push('/admin');
-      router.refresh()
+      // router.push('/admin');
+      // router.refresh()
+      window.location.href = '/admin'
       console.log("Kirish muvaffaqiyatli");
       
     } catch (err) {
