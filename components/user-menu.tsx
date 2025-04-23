@@ -37,7 +37,7 @@ export function UserMenu() {
         try {
             const res = await fetch('/api/logout')
             if (res.ok) {
-              router.push('/')
+              router.refresh()
             } else {
               console.error('Logout failed')
               alert('Logout failed')
