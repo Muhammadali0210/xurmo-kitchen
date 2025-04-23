@@ -1,6 +1,8 @@
 import CategoryList from "./_components/category-list"
 import { getAllCategories } from "@/action/category.action"
 
+export const dynamic = "force-dynamic"
+
 export default async function Home() {
   const categories = await getAllCategories()
 
