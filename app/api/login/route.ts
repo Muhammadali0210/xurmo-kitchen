@@ -12,6 +12,8 @@ export async function POST(req: NextRequest) {
     // Cookie orqali token yuboramiz (frontend ko‘rolmaydi!)
     response.cookies.set('admin-auth', 'true', {
       httpOnly: true,
+      secure: true,
+      sameSite: "lax",
       path: '/',
       maxAge: 60 * 60 * 2 // 2 soat
     })
