@@ -34,6 +34,7 @@ export default function AdminLoginPage() {
         throw new Error(error.message || "Tizimga kirishda xatolik yuz berdi");
       }
       router.push('/admin');
+      router.refresh()
       console.log("Kirish muvaffaqiyatli");
       
     } catch (err) {
