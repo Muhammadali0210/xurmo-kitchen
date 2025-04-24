@@ -24,12 +24,13 @@ export default function DishForm({ dish, categories, onSuccess, pathName }: Dish
   const [price, setPrice] = useState(dish?.price.toString() || "")
   const [currency, setCurrency] = useState(dish?.currency || "USZ")
   const [description, setDescription] = useState(dish?.description || "")
-  const [image, setImage] = useState(dish?.image || "/placeholder.svg")
+  const [image, setImage] = useState(dish?.image || "")
   const [categoryId, setCategoryId] = useState(dish?.categoryId || "oshxona")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
   const [file, setFile] = useState<File | null>(null)
   const [preview, setPreview] = useState<string | null>(dish?.image || null)
+  
 
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,12 +49,19 @@ export default function DishForm({ dish, categories, onSuccess, pathName }: Dish
     setLoading(true)
 
     try {
-      // if (file) {
-      //   const newImageUrl = await uploadToImageKit(file) // URL ni olamiz
-      //   setImage(newImageUrl as string);
-      //   console.log(image);
-      //   setFile(null)
-      // }
+      let imageUrl = image
+      if (file) {
+        try {
+          const res = await uploadToImageKit(file) // URL ni olamiz
+          imageUrl = res
+          setFile(null)
+        } catch (error) {
+          console.log("Fayl yuklanmadi");
+          const fallback = "/placeholder.png"
+          setImage(fallback)
+          imageUrl = fallback
+        }
+      }
 
       if (!title || !price || !description || !categoryId) {
         throw new Error("Barcha maydonlarni to'ldiring")
@@ -64,7 +72,7 @@ export default function DishForm({ dish, categories, onSuccess, pathName }: Dish
         price: Number.parseFloat(price),
         currency,
         description,
-        image: file ? (await uploadToImageKit(file)) : image,
+        image: imageUrl,
         categoryId
       }
 

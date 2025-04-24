@@ -54,7 +54,7 @@ const MenuList = ({ dishes, categories, selectedId }: MenuListProps) => {
         <>
             <CardContent className="max-md:p-2">
                 <Tabs defaultValue="dishes" value={activeTab} onValueChange={handleChangeCategory}>
-                    <TabsList className="mb-4 flex max-sm:overflow-x-auto scrollbar-hide sm:flex-wrap max-sm:pl-[220px]">
+                    <TabsList className="mb-4 flex overflow-x-auto justify-start scrollbar-hide sm:flex-wrap">
                         {categories.map((category) => (
                             <TabsTrigger className="min-w-fit whitespace-nowrap px-3 py-1 text-sm" key={category._id} value={category._id as string}>{category.name}</TabsTrigger>
                         ))}
@@ -85,7 +85,7 @@ const MenuList = ({ dishes, categories, selectedId }: MenuListProps) => {
                                                         </div>
                                                         <div className="mt-2 flex items-center justify-between">
                                                             <span className="font-medium text-green-700">
-                                                                {dish.price} {dish.currency}
+                                                                {dish.price.toLocaleString()} {dish.currency}
                                                             </span>
                                                             <DropdownMenu>
                                                                 <DropdownMenuTrigger asChild>

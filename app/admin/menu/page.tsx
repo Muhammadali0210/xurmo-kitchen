@@ -19,15 +19,24 @@ export default async function AdminDashboardPage({ searchParams }: Props) {
 
   // Agar queryda id bo'lmasa, defaultdan foydalansin
   const selectedCategoryId = categoryId || defaultCategoryId
-  
+
   const dishes = await getDishesByCategoryId(selectedCategoryId)
-  
+
 
   return (
     <div className="bg-gradient-to-b from-green-50 to-white min-h-screen">
       <Card className="border border-gray-200 w-full mx-auto p-0">
-        <MenuHeader categories={categories} />
-        <MenuList dishes={dishes} categories={categories} selectedId={selectedCategoryId} />
+        {categories.length === 0 ? (
+            <div className="w-full h-[200px] flex items-center justify-center">
+              <h2>Kategoriyalar mavjud emas</h2>
+            </div>
+          ) : (
+            <>
+              <MenuHeader categories={categories} />
+              <MenuList dishes={dishes} categories={categories} selectedId={selectedCategoryId} />
+            </>
+          )
+        }
       </Card>
     </div>
   )

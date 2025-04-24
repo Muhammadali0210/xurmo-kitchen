@@ -1,23 +1,24 @@
 "use client"
 import Link from "next/link"
-import { Menu, User } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { UserMenu } from "./user-menu"
 import { usePathname } from "next/navigation"
+import Image from "next/image"
 
 export default function Header() {
   const pathname = usePathname()
   const isAdminPage = pathname.startsWith('/admin');
 
   return (
-    <header className="border-b bg-white/20 backdrop-blur-2xl shadow-sm fixed top-0 inset-x-0 z-50">
+    <header className="border-b bg-white/50 backdrop-blur-xl shadow-sm fixed top-0 inset-x-0 z-50 overflow-hidden">
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center gap-2">
+        {/* <Link href="/" className="flex items-center gap-2">
           <div className="h-8 w-8 rounded-full bg-green-600 flex items-center justify-center">
             <span className="text-white font-bold">X</span>
           </div>
           <span className="text-xl font-bold text-green-800">Xurmo kitchen</span>
+        </Link> */}
+        <Link href="/" className="flex items-center gap-2">
+          <Image src={"/logo-orign.png"} alt="logo" height={40} width={170} className="max-md:h-[40px] w-[150px] object-cover" />
         </Link>
         <nav className="flex items-center gap-6">
           {!isAdminPage && (
@@ -31,3 +32,4 @@ export default function Header() {
     </header>
   )
 }
+66
