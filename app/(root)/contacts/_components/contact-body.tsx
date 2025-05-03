@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
-import { MapPin, Mail, Phone, Clock, Facebook, Instagram, MessageCircle } from "lucide-react"
+import { MapPin, Mail, Phone, Clock, Facebook, Instagram, MessageCircle, Youtube } from "lucide-react"
 import { IContact } from "@/types"
 import Link from "next/link"
 
@@ -64,15 +64,15 @@ export default function ContactBody({contact}: Props) {
                                 <h2 className="text-xl font-bold text-green-800">Ijtimoiy tarmoqlar</h2>
                             </div>
                             <div className="flex flex-col space-y-4">
-                                {contact.socialMedia.facebook && (
+                                {contact.socialMedia.youtube && (
                                     <Link
-                                        href={contact.socialMedia.facebook}
+                                        href={contact.socialMedia.youtube}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex items-center rounded-lg border border-green-200 bg-white p-4 transition-all hover:border-green-400 hover:shadow"
                                     >
-                                        <Facebook className="mr-3 h-6 w-6 text-blue-600" />
-                                        <span className="text-gray-700">Facebook</span>
+                                        <Youtube className="mr-3 h-6 w-6 text-red-600" />
+                                        <span className="text-gray-700">Youtube</span>
                                     </Link>
                                 )}
                                 {contact.socialMedia.instagram && (

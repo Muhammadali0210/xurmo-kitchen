@@ -1,6 +1,8 @@
 import { getContact } from "@/action/contact.action"
 import ContactBody from "./_components/contact-body"
 
+export const dynamic = "force-dynamic"
+
 export default async function ContactsPage() {
     const contact = await getContact()
     const plainContact = JSON.parse(JSON.stringify(contact))

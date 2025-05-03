@@ -5,8 +5,6 @@ export const dynamic = "force-dynamic"
 
 export default async function Home() {
   const categories = await getAllCategories()
-  console.log(categories);
-  
 
   return (
     // <div className="flex min-h-screen flex-col bg-gradient-to-b from-green-50 to-white h-[100vh] overflow-y-auto" style={{ backgroundImage: "url('/image.webp')", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }} >

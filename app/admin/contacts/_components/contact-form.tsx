@@ -175,18 +175,18 @@ export default function ContactForm({contact}: {contact: IContact}) {
               <h3 className="text-lg font-medium text-green-800">Ijtimoiy tarmoqlar</h3>
 
               <div className="space-y-2">
-                <Label htmlFor="facebook">Facebook</Label>
+                <Label htmlFor="facebook">Youtube</Label>
                 <Input
                   id="facebook"
-                  value={contacts.socialMedia.facebook}
+                  value={contacts.socialMedia.youtube}
                   onChange={(e) =>
                     setContacts({
                       ...contacts,
-                      socialMedia: { ...contacts.socialMedia, facebook: e.target.value },
+                      socialMedia: { ...contacts.socialMedia, youtube: e.target.value },
                     })
                   }
                   className="border-green-200 focus:border-green-400"
-                  placeholder="https://facebook.com/yourpage"
+                  placeholder="https://youtube.com/yourpage"
                 />
               </div>
 

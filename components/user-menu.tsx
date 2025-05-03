@@ -68,7 +68,7 @@ export function UserMenu() {
                                 <Contact />
                                 <span>Kontaktlar</span>
                             </DropdownMenuItem>
-                            <DropdownMenuItem onClick={() => window.open('https://t.me/+998940234567', '_blank')}>
+                            <DropdownMenuItem onClick={() => window.open('https://t.me/Abdulaziz1643', '_blank')}>
                                 <MessageSquare />
                                 <span>Bog'lanish</span>
                             </DropdownMenuItem>
