@@ -25,3 +25,8 @@ export interface IContact {
         youtube?: string
     }
 }
+
+export interface IGalery {
+    _id?: string
+    images: string[]
+}

@@ -1,5 +1,6 @@
 import CategoryList from "./_components/category-list"
 import { getAllCategories } from "@/action/category.action"
+import Contact from "@/app/(root)/contacts/page"
 
 export const dynamic = "force-dynamic"
 
@@ -11,7 +12,7 @@ export default async function Home() {
     <div className="flex min-h-screen flex-col bg-gradient-to-b from-white to-green-100 relative"  >
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-green-800 opacity-0 z-10"></div>
       <main className="flex-1 relative z-20">
-        <section className="w-full py-32" >
+        <section className="w-full pt-32" >
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -24,6 +25,8 @@ export default async function Home() {
           </div>
         </section>
       </main>
+
+      <Contact />
     </div>
   )
 }

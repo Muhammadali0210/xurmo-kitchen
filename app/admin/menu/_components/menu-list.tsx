@@ -67,8 +67,8 @@ const MenuList = ({ dishes, categories, selectedId }: MenuListProps) => {
                                 {dishes.length > 0 && (
                                     <div className="grid grid-cols-1 gap-4">
                                         {dishes.map((dish) => (
-                                            <Card key={dish._id} className="overflow-hidden">
-                                                <div className="flex flex-col sm:flex-row">
+                                            <Card key={dish._id} className="overflow-hidden max-sm:max-w-[300px] w-full mx-auto">
+                                                <div className="flex flex-col sm:flex-row w-full">
                                                     <div className="relative sm:h-[150px] h-[150px] w-full sm:w-[150px]">
                                                         <Image
                                                             src={dish.image || "/palov.jpeg"}
@@ -87,23 +87,26 @@ const MenuList = ({ dishes, categories, selectedId }: MenuListProps) => {
                                                             <span className="font-medium text-green-700">
                                                                 {dish.price.toLocaleString()} {dish.currency}
                                                             </span>
-                                                            <DropdownMenu>
-                                                                <DropdownMenuTrigger asChild>
-                                                                    <Button variant="ghost" size="sm">
-                                                                        <MoreVertical className="h-4 w-4" />
-                                                                    </Button>
-                                                                </DropdownMenuTrigger>
-                                                                <DropdownMenuContent align="end">
-                                                                    <DropdownMenuItem onClick={() => handleEditDish(dish)}>
-                                                                        <Pencil className="mr-2 h-4 w-4" />
-                                                                        Tahrirlash
-                                                                    </DropdownMenuItem>
-                                                                    <DropdownMenuItem onClick={() => handleDeleteDish(dish._id as any)}>
-                                                                        <Trash className="mr-2 h-4 w-4" />
-                                                                        O'chirish
-                                                                    </DropdownMenuItem>
-                                                                </DropdownMenuContent>
-                                                            </DropdownMenu>
+                                                            <div>
+
+                                                                <DropdownMenu>
+                                                                    <DropdownMenuTrigger asChild>
+                                                                        <Button variant="ghost" size="sm">
+                                                                            <MoreVertical className="h-4 w-4" />
+                                                                        </Button>
+                                                                    </DropdownMenuTrigger>
+                                                                    <DropdownMenuContent align="end">
+                                                                        <DropdownMenuItem onClick={() => handleEditDish(dish)}>
+                                                                            <Pencil className="mr-2 h-4 w-4" />
+                                                                            Tahrirlash
+                                                                        </DropdownMenuItem>
+                                                                        <DropdownMenuItem onClick={() => handleDeleteDish(dish._id as any)}>
+                                                                            <Trash className="mr-2 h-4 w-4" />
+                                                                            O'chirish
+                                                                        </DropdownMenuItem>
+                                                                    </DropdownMenuContent>
+                                                                </DropdownMenu>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

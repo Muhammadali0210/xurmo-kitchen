@@ -64,6 +64,10 @@ export function UserMenu() {
                                 <Home />
                                 <span>Bosh sahifa</span>
                             </DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => pageHandler('/about')}>
+                                <UtensilsCrossed />
+                                <span>Biz haqimizda</span>
+                            </DropdownMenuItem>
                             <DropdownMenuItem onClick={() => pageHandler('/contacts')}>
                                 <Contact />
                                 <span>Kontaktlar</span>
@@ -101,6 +105,10 @@ export function UserMenu() {
                             <DropdownMenuItem onClick={() => pageHandler('/admin/contacts')}>
                                 <Phone />
                                 <span>Kontaktlar</span>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => pageHandler('/admin/galery')}>
+                                <MessageSquare />
+                                <span>Galereya</span>
                             </DropdownMenuItem>
                             {/* <DropdownMenuItem onClick={() => pageHandler('/admin/settings')}>
                                 <Settings />
