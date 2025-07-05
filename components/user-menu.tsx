@@ -3,6 +3,7 @@ import {
     Contact,
     FolderTree,
     Home,
+    Image,
     LayoutDashboard,
     LogOut,
     Menu,
@@ -65,7 +66,7 @@ export function UserMenu() {
                                 <span>Bosh sahifa</span>
                             </DropdownMenuItem>
                             <DropdownMenuItem onClick={() => pageHandler('/about')}>
-                                <UtensilsCrossed />
+                                <Image />
                                 <span>Biz haqimizda</span>
                             </DropdownMenuItem>
                             <DropdownMenuItem onClick={() => pageHandler('/contacts')}>
@@ -107,7 +108,7 @@ export function UserMenu() {
                                 <span>Kontaktlar</span>
                             </DropdownMenuItem>
                             <DropdownMenuItem onClick={() => pageHandler('/admin/galery')}>
-                                <MessageSquare />
+                                <Image />
                                 <span>Galereya</span>
                             </DropdownMenuItem>
                             {/* <DropdownMenuItem onClick={() => pageHandler('/admin/settings')}>
