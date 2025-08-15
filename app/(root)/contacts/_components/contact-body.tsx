@@ -51,7 +51,7 @@ export default function ContactBody({contact}: Props) {
                             <Clock className="mb-4 h-12 w-12 text-green-600" />
                             <p className="text-xl font-medium text-green-800">{contact.workingHours}</p>
                             <p className="mt-4 text-gray-600">
-                                Bizning restoranimiz sizga xizmat ko'rsatishga doimo tayyor. Tashrif buyuring va mazali taomlarimizdan
+                                Bizning choyxonamiz sizga xizmat ko'rsatishga doimo tayyor. Tashrif buyuring va mazali taomlarimizdan
                                 bahramand bo'ling!
                             </p>
                         </CardContent>
