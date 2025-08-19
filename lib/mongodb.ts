@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://kitchen:3fk4lJ4EnDABuq0E@nextjsdb.oxnhole.mongodb.net/nextjsdb";
+const MONGODB_URI = "mongodb+srv://xurmochoyxona1:AJT75.X9mfsdfcweEFnq@xurmo.vvlxzvk.mongodb.net/Xurmo?retryWrites=true&w=majority&appName=Xurmo";
 
 if (!MONGODB_URI) {
   console.log("Please define the MONGODB_URI environment variable inside .env.local");

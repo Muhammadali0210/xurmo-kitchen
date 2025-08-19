@@ -14,7 +14,11 @@ export default async function ContactsPage() {
                     <p className="mt-4 md:text-lg text-md text-green-700">Savol va takliflaringiz bo'lsa bizga murojat qiling</p>
                 </div>
 
-                <ContactBody contact={plainContact} />
+                {plainContact ?  <ContactBody contact={plainContact} /> : (
+                    <div className="text-center text-green-700">
+                        Contact malumotlari topilmadi
+                    </div>
+                )}
             </div>
         </div>
     )
