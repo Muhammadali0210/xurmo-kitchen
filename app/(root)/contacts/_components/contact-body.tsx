@@ -22,18 +22,18 @@ export default function ContactBody({contact}: Props) {
                             <ul className="space-y-6">
                                 <li className="flex items-start">
                                     <MapPin className="mr-3 h-6 w-6 flex-shrink-0 text-green-600" />
-                                    <span className="text-gray-700">{contact.address}</span>
+                                    <span className="text-gray-700">{contact?.address}</span>
                                 </li>
                                 <li className="flex items-start">
                                     <Mail className="mr-3 h-6 w-6 flex-shrink-0 text-green-600" />
-                                    <a href={`mailto:${contact.email}`} className="text-green-700 hover:underline">
-                                        {contact.email}
+                                    <a href={`mailto:${contact?.email}`} className="text-green-700 hover:underline">
+                                        {contact?.email}
                                     </a>
                                 </li>
-                                {contact.phones.map((phone, index) => (
+                                {contact?.phones?.map((phone, index) => (
                                     <li key={index} className="flex items-start">
                                         <Phone className="mr-3 h-6 w-6 flex-shrink-0 text-green-600" />
-                                        <a href={`tel:${phone.replace(/\s/g, "")}`} className="text-green-700 hover:underline">
+                                        <a href={`tel:${phone?.replace(/\s/g, "")}`} className="text-green-700 hover:underline">
                                             {phone}
                                         </a>
                                     </li>
@@ -49,7 +49,7 @@ export default function ContactBody({contact}: Props) {
                                 <h2 className="text-xl font-bold text-green-800 text-start">Ish vaqti</h2>
                             </div>
                             <Clock className="mb-4 h-12 w-12 text-green-600" />
-                            <p className="text-xl font-medium text-green-800">{contact.workingHours}</p>
+                            <p className="text-xl font-medium text-green-800">{contact?.workingHours}</p>
                             <p className="mt-4 text-gray-600">
                                 Bizning choyxonamiz sizga xizmat ko'rsatishga doimo tayyor. Tashrif buyuring va mazali taomlarimizdan
                                 bahramand bo'ling!
@@ -64,7 +64,7 @@ export default function ContactBody({contact}: Props) {
                                 <h2 className="text-xl font-bold text-green-800">Ijtimoiy tarmoqlar</h2>
                             </div>
                             <div className="flex flex-col space-y-4">
-                                {contact.socialMedia.youtube && (
+                                {contact?.socialMedia?.youtube && (
                                     <Link
                                         href={contact.socialMedia.youtube}
                                         target="_blank"
@@ -88,7 +88,7 @@ export default function ContactBody({contact}: Props) {
                                 )}
                                 {contact.socialMedia.telegram && (
                                     <Link
-                                        href={contact.socialMedia.telegram}
+                                        href={contact?.socialMedia.telegram}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex items-center rounded-lg border border-green-200 bg-white p-4 transition-all hover:border-green-400 hover:shadow"
@@ -101,70 +101,6 @@ export default function ContactBody({contact}: Props) {
                         </CardContent>
                     </Card>
                 </div>
-
-                {/* Contact Form Section */}
-                {/* <div className="mt-16">
-                    <Card className="overflow-hidden border-2 border-green-100">
-                        <div className="bg-green-600 p-4">
-                            <h2 className="text-xl font-bold text-white">Xabar qoldiring</h2>
-                        </div>
-                        <CardContent className="p-6">
-                            <div className="grid gap-6 md:grid-cols-2">
-                                <div className="space-y-4">
-                                    <div>
-                                        <label htmlFor="name" className="mb-2 block text-sm font-medium text-gray-700">
-                                            Ismingiz
-                                        </label>
-                                        <input
-                                            type="text"
-                                            id="name"
-                                            className="w-full rounded-md border border-green-200 p-2 focus:border-green-400 focus:outline-none"
-                                            placeholder="Ismingizni kiriting"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label htmlFor="email" className="mb-2 block text-sm font-medium text-gray-700">
-                                            Email
-                                        </label>
-                                        <input
-                                            type="email"
-                                            id="email"
-                                            className="w-full rounded-md border border-green-200 p-2 focus:border-green-400 focus:outline-none"
-                                            placeholder="Email manzilingizni kiriting"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label htmlFor="phone" className="mb-2 block text-sm font-medium text-gray-700">
-                                            Telefon
-                                        </label>
-                                        <input
-                                            type="tel"
-                                            id="phone"
-                                            className="w-full rounded-md border border-green-200 p-2 focus:border-green-400 focus:outline-none"
-                                            placeholder="Telefon raqamingizni kiriting"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="space-y-4">
-                                    <div>
-                                        <label htmlFor="message" className="mb-2 block text-sm font-medium text-gray-700">
-                                            Xabar
-                                        </label>
-                                        <textarea
-                                            id="message"
-                                            rows={5}
-                                            className="w-full rounded-md border border-green-200 p-2 focus:border-green-400 focus:outline-none"
-                                            placeholder="Xabaringizni kiriting"
-                                        ></textarea>
-                                    </div>
-                                    <button className="w-full rounded-md bg-green-600 px-4 py-2 text-white transition-colors hover:bg-green-700">
-                                        Yuborish
-                                    </button>
-                                </div>
-                            </div>
-                        </CardContent>
-                    </Card>
-                </div> */}
 
                 {/* Map Section */}
                 <div className="mt-16 overflow-hidden rounded-2xl border-2 border-green-100 bg-white shadow-lg">
